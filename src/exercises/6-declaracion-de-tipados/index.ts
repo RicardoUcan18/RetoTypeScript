@@ -1,3 +1,4 @@
+import { isAdmin, isUser } from '../5-asignacion-tipados/index';
 interface User {
   type: 'user';
   name: string;
@@ -21,7 +22,7 @@ export const persons: Person[] = [
     age: 25,
     occupation: 'Ingeniero de Software',
   },
-  { type: 'admin', name: 'Javier Castillo', age: 32, role: 'Estudiante' },
+  { type: 'admin', name: 'Javier Castillo', age: 23, role: 'Estudiante' },
   {
     type: 'user',
     name: 'Maria Isabel Hernandez',
@@ -42,16 +43,17 @@ export function logPerson(person: Person) {
 export function filterPersons(
   persons: Person[],
   personType: string,
-  criteria: unknown
-): unknown[] {
+  criteria: Partial<Admin | User>
+): Admin[] | User[] {
   return persons
     .filter(person => person.type === personType)
     .filter(person => {
-      let criteriaKeys = Object.keys(criteria) as (keyof Person)[];
+    
+      let criteriaKeys = Object.keys(criteria) as (keyof ( Admin| User))[];
       return criteriaKeys.every(fieldName => {
         return person[fieldName] === criteria[fieldName];
       });
-    });
+    }) as (Admin[] | User[]);
 }
 
 export const usersOfAge23 = filterPersons(persons, 'user', { age: 23 });
