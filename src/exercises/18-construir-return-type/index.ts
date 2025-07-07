@@ -1,6 +1,8 @@
 /* _____________ Aqui va tu codigo _____________ */
 
-type MyReturnType<T> = any;
+type MyReturnType<T> =  T extends (...args: any[]) => infer R ? R : never;
+
+//type T2 = ReturnType<<T>() => T>;
 
 /* _____________ Casos de prueba  _____________ */
 

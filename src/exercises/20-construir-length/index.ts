@@ -1,5 +1,10 @@
 /* _____________ Aqui va tu codigo _____________ */
-type MyLength<S extends string> = any;
+//type MyLength<S extends string> = any;
+
+type MyLength<S extends string, T extends string[] = []> =
+  S extends `${infer First}${infer Rest}`
+    ? MyLength<Rest, [First, ...T]>
+    : T['length'];
 
 /* _____________ Casos de prueba  _____________ */
 

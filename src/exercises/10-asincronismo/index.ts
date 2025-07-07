@@ -35,8 +35,18 @@ export type ApiResponse<T> = (
     }
 );
 
-export function promisify(arg: unknown): unknown {
-    return null;
+export function promisify<T>(respuesta: (cb: (res: ApiResponse<T>) => void) => void): () => Promise<T> {
+    return () => {
+        return new Promise<T>((resolve, reject) => {
+            respuesta((response) => {
+                if (response.status === 'success') {
+                    resolve(response.data);
+                } else {
+                    reject(new Error(response.error));
+                }
+            });
+        });
+    };
 }
 
 const oldApi = {
