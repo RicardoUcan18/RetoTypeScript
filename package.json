@@ -18,7 +18,7 @@
     "test:7": "tsc src/exercises/7-tipados-genericos/index.ts --noEmit --watch",
     "test:8": "tsc src/exercises/8-tipados-compuestos/index.ts --noEmit --watch",
     "test:9": "tsc src/exercises/9-tipados-genericos-discriminativos/index.ts --noEmit --watch",
-    "test:10": "tsc src/exercises/10-asincronismo/index.ts --noEmit --watch",
+    "test:10": "tsc src/exercises/10-asincronismo/index.ts --noEmit --watch --lib es2022,dom",
     "test:11": "tsc src/exercises/11-declaraciones-de-tipado/index.ts --noEmit --watch",
     "test:12": "tsc src/exercises/12-declaraciones-de-tipados-genericos/index.ts --noEmit --watch",
     "test:13": "tsc src/exercises/13-aumentacion-de-modulos/index.ts --noEmit --watch",

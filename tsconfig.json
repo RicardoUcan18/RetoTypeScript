@@ -17,6 +17,6 @@
     "noUnusedLocals": false,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
-  },
-  "include": ["src/exercises/9-tipados-genericos-discriminativos"]
+  }
+ // "include": ["src/exercises/10-asincronismo"]
 }
